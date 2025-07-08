@@ -1,36 +1,78 @@
-# Quantum Mechanical Keyboard Firmware
+# QMK Firmware for Keychron V3 Max - @cheycron's Customization
 
-[![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
-[![Discord](https://img.shields.io/discord/440868230475677696.svg)](https://discord.gg/Uq7gcHh)
-[![Docs Status](https://img.shields.io/badge/docs-ready-orange.svg)](https://docs.qmk.fm)
-[![GitHub contributors](https://img.shields.io/github/contributors/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/pulse/monthly)
-[![GitHub forks](https://img.shields.io/github/forks/qmk/qmk_firmware.svg?style=social&label=Fork)](https://github.com/qmk/qmk_firmware/)
+This is a personalized fork of the [QMK firmware](https://github.com/qmk/qmk_firmware), specifically configured for the **Keychron V3 Max** keyboard (TKL ANSI w/ Encoder).
 
-This is a keyboard firmware based on the [tmk\_keyboard firmware](https://github.com/tmk/tmk_keyboard) with some useful features for Atmel AVR and ARM controllers, and more specifically, the [OLKB product line](https://olkb.com), the [ErgoDox EZ](https://ergodox-ez.com) keyboard, and the Clueboard product line.
+The keymap, located at `keyboards/keychron/v3_max/ansi_encoder/keymaps/cheycron/`, is designed to enhance productivity for both coding and general use, and includes a dedicated gaming mode.
 
-## Documentation
+## How to Build
 
-* [See the official documentation on docs.qmk.fm](https://docs.qmk.fm)
+To compile this firmware, use the following `make` command from the QMK root directory:
 
-The docs are powered by [Docsify](https://docsify.js.org/) and hosted on [GitHub](/docs/). They are also viewable offline; see [Previewing the Documentation](https://docs.qmk.fm/#/contributing?id=previewing-the-documentation) for more details.
+```bash
+make keychron/v3_max/ansi_encoder:cheycron
+```
 
-You can request changes by making a fork and opening a [pull request](https://github.com/qmk/qmk_firmware/pulls), or by clicking the "Edit this page" link at the bottom of any page.
+Flash the resulting `.bin` file using the [QMK Toolbox](https://github.com/qmk/qmk_toolbox).
 
-## Supported Keyboards
+---
 
-* [Planck](/keyboards/planck/)
-* [Preonic](/keyboards/preonic/)
-* [ErgoDox EZ](/keyboards/ergodox_ez/)
-* [Clueboard](/keyboards/clueboard/)
-* [Cluepad](/keyboards/clueboard/17/)
-* [Atreus](/keyboards/atreus/)
+## Keymap Features
 
-The project also includes community support for [lots of other keyboards](/keyboards/).
+The functionality is split across four main layers, each with a distinct purpose and RGB lighting scheme to indicate the active layer.
 
-## Maintainers
+### Layers
 
-QMK is developed and maintained by Jack Humbert of OLKB with contributions from the community, and of course, [Hasu](https://github.com/tmk). The OLKB product firmwares are maintained by [Jack Humbert](https://github.com/jackhumbert), the Ergodox EZ by [ZSA Technology Labs](https://github.com/zsa), the Clueboard by [Zach White](https://github.com/skullydazed), and the Atreus by [Phil Hagelberg](https://github.com/technomancy).
+#### 1. Base Layer
+- **RGB Mode:** `RGB_MATRIX_DUAL_BEACON`
+- This is the standard QWERTY layout for everyday typing.
+- The `Fn` key (Right of Spacebar) provides momentary access to the `BASE_FN` layer.
+- Dedicated keys in the top-right cluster toggle the `GAMING` and `NUM_PAD` layers.
 
-## Official Website
+#### 2. Function Layer (`BASE_FN`)
+- **Access:** Hold the `Fn` key.
+- **RGB Mode:** `RGB_MATRIX_SPLASH` with custom key colors.
+- This layer provides access to media controls, lighting adjustments, and Bluetooth device switching.
+- **Highlighted Keys:**
+    - **Green:** System functions (Brightness, Task View, File Explorer).
+    - **Goldenrod:** Media controls (Previous, Play/Pause, Next).
+    - **Gold:** Volume controls.
+    - **Blue:** Bluetooth host switching (BT1, BT2, BT3).
 
-[qmk.fm](https://qmk.fm) is the official website of QMK, where you can find links to this page, the documentation, and the keyboards supported by QMK.
+#### 3. Gaming Layer
+- **Access:** Toggle with the `TG(GAMING)` key (top-right).
+- **RGB Mode:** `RGB_MATRIX_TYPING_HEATMAP`
+- This mode is optimized for gaming:
+    - The `Windows` / `Command` keys are disabled to prevent accidental presses.
+    - Includes an anti-ghosting feature for `A` and `D` keys: if you hold one key and press the other, the first one is unregistered to prevent conflicting inputs in games.
+
+#### 4. Numpad Layer
+- **Access:** Toggle with the `TG(NUM_PAD)` key (top-right).
+- **RGB Mode:** `RGB_MATRIX_SPLASH` with custom key colors.
+- This layer transforms the right side of the keyboard into a fully functional number pad.
+- It also includes basic mouse control keys.
+- **Highlighted Keys:**
+    - **Cyan/Blue:** Numpad keys.
+    - **White/Yellow:** Mouse movement and click keys.
+
+### Rotary Encoder
+
+The rotary encoder's function changes based on the active layer:
+
+| Layer | Clockwise | Counter-Clockwise | Press |
+| :--- | :--- | :--- | :--- |
+| **Base** | Volume Up | Volume Down | Mute |
+| **Function (FN)** | RGB Hue Increase | RGB Hue Decrease | N/A |
+| **Gaming** | Volume Up | Volume Down | Mute |
+| **Numpad** | Volume Up | Volume Down | Mute |
+
+### Key Combos
+
+To improve workflow speed, several key combinations are available on the `BASE` layer:
+
+| Keys | Action | Shortcut |
+| :--- | :--- | :--- |
+| `Z` + `X` | Cut | `Ctrl` + `X` |
+| `X` + `C` | Copy | `Ctrl` + `C` |
+| `C` + `V` | Paste | `Ctrl` + `V` |
+| `S` + `D` | Save | `Ctrl` + `S` |
+| `.` + `/` | Comment Line | `Ctrl` + `/` |

@@ -1,0 +1,7 @@
+VIA_ENABLE 					= yes
+VIAL_ENABLE 				= no
+AUTO_SHIFT_ENABLE 			= no
+CAPS_WORD_ENABLE 			= yes
+RGB_MATRIX_ENABLE 			= yes
+COMBO_ENABLE 				= yes
+MOUSEKEY_ENABLE 			= yes
