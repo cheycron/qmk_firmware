@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="861" height="297.39932" viewBox="0 0 861 297.39932" version="1.1" id="svg87" sodipodi:docname="combos.svg"
+    inkscape:version="1.4.2 (f4327f4, 2025-05-13)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg"
+    xmlns:svg="http://www.w3.org/2000/svg">
+    <defs id="defs87" />
+    <sodipodi:namedview id="namedview87" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25"
+        inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0"
+        inkscape:deskcolor="#d1d1d1" showguides="true" inkscape:zoom="2.0718229" inkscape:cx="319.52539"
+        inkscape:cy="222.0267" inkscape:window-width="2560" inkscape:window-height="1369" inkscape:window-x="1072"
+        inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="svg87">
+        <sodipodi:guide position="1253.4336,223.10832" orientation="1,0" id="guide1" inkscape:locked="false" />
+    </sodipodi:namedview>
+    <style>
+        .keyboard {
+            fill: #1c1e22;
+            stroke: #1c1e22;
+        }
+
+        .key rect,
+        .key ellipse {
+            fill: #2d3036;
+            stroke: #373a40;
+            stroke-width: 1;
+        }
+
+        .key text {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            text-anchor: middle;
+            dominant-baseline: central;
+            fill: #d0d2d6;
+        }
+
+        .combo rect {
+            fill: #42474e;
+            stroke: #373a40;
+            stroke-width: 1;
+        }
+
+        .combo text {
+            font-family: Arial, sans-serif;
+            font-size: 8px;
+            text-anchor: middle;
+            dominant-baseline: central;
+            fill: #d19a66;
+        }
+
+        .tg rect {
+            fill: #42474e;
+        }
+
+        .tg text {
+            fill: #98c379;
+        }
+
+        .key:hover {
+            fill: #6b7f8e;
+        }
+    </style>
+    <g id="keyboard" transform="translate(-85,-66.75)">
+        <rect class="keyboard" id="board" width="860" height="296.39932" x="85.5" y="67.25" ry="2.0883157"
+            rx="2.0883157" />
+        <g id="g97" transform="translate(91.25,72.949661)" inkscape:label="Keys">
+            <g class="key">
+                <rect x="10" y="10" width="40" height="40" id="rect1" />
+                <text x="30" y="30.915556" id="text1">Esc</text>
+            </g>
+            <g class="key">
+                <rect x="70" y="10" width="40" height="40" id="rect2" />
+                <text x="90" y="31" id="text2">F1</text>
+            </g>
+            <g class="key">
+                <rect x="115" y="10" width="40" height="40" id="rect3" />
+                <text x="135" y="31" id="text3">F2</text>
+            </g>
+            <g class="key">
+                <rect x="160" y="10" width="40" height="40" id="rect4" />
+                <text x="180" y="31" id="text4">F3</text>
+            </g>
+            <g class="key">
+                <rect x="205" y="10" width="40" height="40" id="rect5" />
+                <text x="225" y="31" id="text5">F4</text>
+            </g>
+            <g class="key">
+                <rect x="265" y="10" width="40" height="40" id="rect6" />
+                <text x="285" y="31" id="text6">F5</text>
+            </g>
+            <g class="key">
+                <rect x="310" y="10" width="40" height="40" id="rect7" />
+                <text x="330" y="31" id="text7">F6</text>
+            </g>
+            <g class="key">
+                <rect x="355" y="10" width="40" height="40" id="rect8" />
+                <text x="375" y="31" id="text8">F7</text>
+            </g>
+            <g class="key">
+                <rect x="400" y="10" width="40" height="40" id="rect9" />
+                <text x="420" y="31" id="text9">F8</text>
+            </g>
+            <g class="key">
+                <rect x="460" y="10" width="40" height="40" id="rect10" />
+                <text x="480" y="31" id="text10">F9</text>
+            </g>
+            <g class="key">
+                <rect x="505" y="10" width="40" height="40" id="rect11" />
+                <text x="525" y="31" id="text11">F10</text>
+            </g>
+            <g class="key">
+                <rect x="550" y="10" width="40" height="40" id="rect12" />
+                <text x="570" y="31" id="text12">F11</text>
+            </g>
+            <g class="key">
+                <rect x="595" y="10" width="40" height="40" id="rect13" />
+                <text x="615" y="31" id="text13">F12</text>
+            </g>
+            <g class="key">
+                <ellipse id="path1" cx="670" cy="30" rx="20" ry="20" />
+                <text x="670" y="31" id="text13">VOL</text>
+            </g>
+            <g class="key">
+                <rect x="710" y="10" width="40" height="40" id="rect75" />
+                <text x="720" y="31" id="text75" />
+            </g>
+            <g class="key tg">
+                <rect x="755" y="10" width="40" height="40" id="rect76" />
+                <text x="775" y="31" id="text76">GAME</text>
+            </g>
+            <g class="key tg">
+                <rect x="800" y="10" width="40" height="40" id="rect77" />
+                <text x="820" y="31" id="text77">NUM</text>
+            </g>
+            <g class="key">
+                <rect x="10" y="55" width="40" height="40" id="rect14" />
+                <text x="30" y="76" id="text14">`</text>
+            </g>
+            <g class="key">
+                <rect x="55" y="55" width="40" height="40" id="rect15" />
+                <text x="75" y="76" id="text15">1</text>
+            </g>
+            <g class="key">
+                <rect x="100" y="55" width="40" height="40" id="rect16" />
+                <text x="120" y="76" id="text16">2</text>
+            </g>
+            <g class="key">
+                <rect x="145" y="55" width="40" height="40" id="rect17" />
+                <text x="165" y="76" id="text17">3</text>
+            </g>
+            <g class="key">
+                <rect x="190" y="55" width="40" height="40" id="rect18" />
+                <text x="210" y="76" id="text18">4</text>
+            </g>
+            <g class="key">
+                <rect x="235" y="55" width="40" height="40" id="rect19" />
+                <text x="255" y="76" id="text19">5</text>
+            </g>
+            <g class="key">
+                <rect x="280" y="55" width="40" height="40" id="rect20" />
+                <text x="300" y="76" id="text20">6</text>
+            </g>
+            <g class="key">
+                <rect x="325" y="55" width="40" height="40" id="rect21" />
+                <text x="345" y="76" id="text21">7</text>
+            </g>
+            <g class="key">
+                <rect x="370" y="55" width="40" height="40" id="rect22" />
+                <text x="390" y="76" id="text22">8</text>
+            </g>
+            <g class="key">
+                <rect x="415" y="55" width="40" height="40" id="rect23" />
+                <text x="435" y="76" id="text23">9</text>
+            </g>
+            <g class="key">
+                <rect x="460" y="55" width="40" height="40" id="rect24" />
+                <text x="480" y="76" id="text24">0</text>
+            </g>
+            <g class="key">
+                <rect x="505" y="55" width="40" height="40" id="rect25" />
+                <text x="525" y="76" id="text25">-</text>
+            </g>
+            <g class="key">
+                <rect x="550" y="55" width="40" height="40" id="rect26" />
+                <text x="570" y="76" id="text26">=</text>
+            </g>
+            <g class="key">
+                <rect x="595.02808" y="55.028069" width="94.943863" height="40" id="rect27" />
+                <text x="642.30957" y="76" id="text27">Backspace</text>
+            </g>
+            <g class="key">
+                <rect x="710" y="55" width="40" height="40" id="rect78" />
+                <text x="730" y="76" id="text78">Ins</text>
+            </g>
+            <g class="key">
+                <rect x="755" y="55" width="40" height="40" id="rect79" />
+                <text x="775" y="76" id="text79">Home</text>
+            </g>
+            <g class="key">
+                <rect x="800" y="55" width="40" height="40" id="rect80" />
+                <text x="820" y="76" id="text80">PgUp</text>
+            </g>
+            <g class="key">
+                <rect x="10" y="100" width="65" height="40" id="rect28" />
+                <text x="42.5" y="120" id="text28">Tab</text>
+            </g>
+            <g class="key">
+                <rect x="80" y="100" width="40" height="40" id="rect29" />
+                <text x="100" y="120" id="text29">Q</text>
+            </g>
+            <g class="key">
+                <rect x="125" y="100" width="40" height="40" id="rect30" />
+                <text x="145" y="120" id="text30">W</text>
+            </g>
+            <g class="key">
+                <rect x="170" y="100" width="40" height="40" id="rect31" />
+                <text x="190" y="120" id="text31">E</text>
+            </g>
+            <g class="key">
+                <rect x="215" y="100" width="40" height="40" id="rect32" />
+                <text x="235" y="120" id="text32">R</text>
+            </g>
+            <g class="key">
+                <rect x="260" y="100" width="40" height="40" id="rect33" />
+                <text x="280" y="120" id="text33">T</text>
+            </g>
+            <g class="key">
+                <rect x="305" y="100" width="40" height="40" id="rect34" />
+                <text x="325" y="120" id="text34">Y</text>
+            </g>
+            <g class="key">
+                <rect x="350" y="100" width="40" height="40" id="rect35" />
+                <text x="370" y="120" id="text35">U</text>
+            </g>
+            <g class="key">
+                <rect x="395" y="100" width="40" height="40" id="rect36" />
+                <text x="415" y="120" id="text36">I</text>
+            </g>
+            <g class="key">
+                <rect x="440" y="100" width="40" height="40" id="rect37" />
+                <text x="460" y="120" id="text37">O</text>
+            </g>
+            <g class="key">
+                <rect x="485" y="100" width="40" height="40" id="rect38" />
+                <text x="505" y="120" id="text38">P</text>
+            </g>
+            <g class="key">
+                <rect x="530" y="100" width="40" height="40" id="rect39" />
+                <text x="550" y="120" id="text39">[</text>
+            </g>
+            <g class="key">
+                <rect x="575" y="100" width="40" height="40" id="rect40" />
+                <text x="595" y="120" id="text40">]</text>
+            </g>
+            <g class="key">
+                <rect x="620.04022" y="100.04021" width="69.906158" height="40" id="rect41" />
+                <text x="654" y="120" id="text41">\</text>
+            </g>
+            <g class="key">
+                <rect x="710" y="100" width="40" height="40" id="rect81" />
+                <text x="732" y="120" id="text81">Del</text>
+            </g>
+            <g class="key">
+                <rect x="755" y="100" width="40" height="40" id="rect82" />
+                <text x="774" y="120" id="text82">End</text>
+            </g>
+            <g class="key">
+                <rect x="800" y="100" width="40" height="40" id="rect83" />
+                <text x="820" y="120" id="text83">PgDn</text>
+            </g>
+            <g class="key">
+                <rect x="10" y="145" width="80" height="40" id="rect42" />
+                <text x="50" y="165" id="text42">Caps Lock</text>
+            </g>
+            <g class="key">
+                <rect x="95" y="145" width="40" height="40" id="rect43" />
+                <text x="115" y="165" id="text43">A</text>
+            </g>
+            <g class="key">
+                <rect x="140" y="145" width="40" height="40" id="rect44" />
+                <text x="160" y="165" id="text44">S</text>
+            </g>
+            <g class="key">
+                <rect x="185" y="145" width="40" height="40" id="rect45" />
+                <text x="205" y="165" id="text45">D</text>
+            </g>
+            <g class="key">
+                <rect x="230" y="145" width="40" height="40" id="rect46" />
+                <text x="250" y="165" id="text46">F</text>
+            </g>
+            <g class="key">
+                <rect x="275" y="145" width="40" height="40" id="rect47" />
+                <text x="295" y="165" id="text47">G</text>
+            </g>
+            <g class="key">
+                <rect x="320" y="145" width="40" height="40" id="rect48" />
+                <text x="340" y="165" id="text48">H</text>
+            </g>
+            <g class="key">
+                <rect x="365" y="145" width="40" height="40" id="rect49" />
+                <text x="385" y="165" id="text49">J</text>
+            </g>
+            <g class="key">
+                <rect x="410" y="145" width="40" height="40" id="rect50" />
+                <text x="430" y="165" id="text50">K</text>
+            </g>
+            <g class="key">
+                <rect x="455" y="145" width="40" height="40" id="rect51" />
+                <text x="475" y="165" id="text51">L</text>
+            </g>
+            <g class="key">
+                <rect x="500" y="145" width="40" height="40" id="rect52" />
+                <text x="520" y="165" id="text52">;</text>
+            </g>
+            <g class="key">
+                <rect x="545" y="145" width="40" height="40" id="rect53" />
+                <text x="565" y="165" id="text53">'</text>
+            </g>
+            <g class="key">
+                <rect x="590.02655" y="145.02655" width="99.946884" height="39.946888" id="rect54" />
+                <text x="639.44336" y="165" id="text54">Enter</text>
+            </g>
+            <g class="key">
+                <rect x="10" y="190" width="100" height="40" id="rect55" />
+                <text x="60" y="210" id="text55">Shift</text>
+            </g>
+            <g class="key">
+                <rect x="115" y="190" width="40" height="40" id="rect56" />
+                <text x="135" y="210" id="text56">Z</text>
+            </g>
+            <g class="key">
+                <rect x="160" y="190" width="40" height="40" id="rect57" />
+                <text x="180" y="210" id="text57">X</text>
+            </g>
+            <g class="key">
+                <rect x="205" y="190" width="40" height="40" id="rect58" />
+                <text x="225" y="210" id="text58">C</text>
+            </g>
+            <g class="key">
+                <rect x="250" y="190" width="40" height="40" id="rect59" />
+                <text x="270" y="210" id="text59">V</text>
+            </g>
+            <g class="key">
+                <rect x="295" y="190" width="40" height="40" id="rect60" />
+                <text x="315" y="210" id="text60">B</text>
+            </g>
+            <g class="key">
+                <rect x="340" y="190" width="40" height="40" id="rect61" />
+                <text x="360" y="210" id="text61">N</text>
+            </g>
+            <g class="key">
+                <rect x="385" y="190" width="40" height="40" id="rect62" />
+                <text x="405" y="210" id="text62">M</text>
+            </g>
+            <g class="key">
+                <rect x="430" y="190" width="40" height="40" id="rect63" />
+                <text x="450" y="210" id="text63">,</text>
+            </g>
+            <g class="key">
+                <rect x="475" y="190" width="40" height="40" id="rect64" />
+                <text x="495" y="210" id="text64">.</text>
+            </g>
+            <g class="key">
+                <rect x="520" y="190" width="40" height="40" id="rect65" />
+                <text x="540" y="210" id="text65">/</text>
+            </g>
+            <g class="key">
+                <rect x="565.02228" y="190.02228" width="124.92059" height="40" id="rect66" />
+                <text x="627.25696" y="210" id="text66">Shift</text>
+            </g>
+            <g class="key">
+                <rect x="755" y="190" width="40" height="40" id="rect84" />
+                <text x="775" y="210" id="text84">▲</text>
+            </g>
+            <g class="key">
+                <rect x="10" y="235" width="55" height="40" id="rect67" />
+                <text x="37.623047" y="255" id="text67">Ctrl</text>
+            </g>
+            <g class="key">
+                <rect x="70" y="235" width="55" height="40" id="rect68" />
+                <text x="97.839844" y="255" id="text68">Win</text>
+            </g>
+            <g class="key">
+                <rect x="130" y="235" width="55" height="40" id="rect69" />
+                <text x="157.55273" y="255" id="text69">Alt</text>
+            </g>
+            <g class="key">
+                <rect x="190" y="235" width="260" height="40" id="rect70" />
+                <text x="319.97949" y="255" id="text70">Space</text>
+            </g>
+            <g class="key">
+                <rect x="455" y="235" width="55" height="40" id="rect71" />
+                <text x="482.55273" y="255" id="text71">Alt</text>
+            </g>
+            <g class="key tg">
+                <rect class="key" x="515" y="235" width="55" height="40" id="rect72" />
+                <text x="542.4209" y="255" id="text72">Fn</text>
+            </g>
+            <g class="key">
+                <rect x="575" y="235" width="55" height="40" id="rect73" />
+                <text x="602.48535" y="255" id="text73">Menu</text>
+            </g>
+            <g class="key">
+                <rect x="635" y="235" width="55" height="40" id="rect74" />
+                <text x="662.62305" y="255" id="text74">Ctrl</text>
+            </g>
+            <g class="key">
+                <rect x="710" y="235" width="40" height="40" id="rect85" />
+                <text x="730.00293" y="255" id="text85">◄</text>
+            </g>
+            <g class="key">
+                <rect x="755" y="235" width="40" height="40" id="rect86" />
+                <text x="774.99707" y="255" id="text86">▼</text>
+            </g>
+            <g class="key">
+                <rect x="800" y="235" width="40" height="40" id="rect87" />
+                <text x="820.00293" y="255" id="text87">►</text>
+            </g>
+        </g>
+
+    </g>
+
+    <g class="combo">
+        <rect class="combo" id="rect88" width="40" height="20" x="170" y="162" inkscape:label="combo" />
+        <text x="190" y="172" id="text89">CTRL(S)</text>
+    </g>
+
+    <g class="combo">
+        <rect class="combo" id="rect88" width="40" height="20" x="142" y="205" inkscape:label="combo" />
+        <text x="162" y="216" id="text89">CTRL(X)</text>
+    </g>
+
+    <g class="combo">
+        <rect class="combo" id="rect88" width="40" height="20" x="190" y="205" inkscape:label="combo" />
+        <text x="210" y="216" id="text89">CTRL(C)</text>
+    </g>
+
+    <g class="combo">
+        <rect class="combo" id="rect88" width="40" height="20" x="235" y="205" inkscape:label="combo" />
+        <text x="254" y="216" id="text89">CTRL(V)</text>
+    </g>
+
+    <g class="combo">
+        <rect class="combo" id="rect88" width="40" height="20" x="505" y="205" inkscape:label="combo" />
+        <text x="525" y="216" id="text89">CTRL(/)</text>
+    </g>
+
+</svg>
