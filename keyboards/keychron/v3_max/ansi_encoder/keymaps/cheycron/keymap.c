@@ -59,13 +59,14 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 // === === === === === === === === === === === === === ===
 //  COMBOS
 // === === === === === === === === === === === === === ===
-enum combos { ZX_CUT, XC_COPY, CV_PASTE, SD_SAVE, SLASHDOT_COMMENT, AWD_GAMING };
+enum combos { ZX_CUT, XC_COPY, CV_PASTE, SD_SAVE, SLASHDOT_COMMENT, QWE_GAMING, F3F4_SUPERF4 };
 const uint16_t PROGMEM zx_combo[]       = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM xc_combo[]       = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM cv_combo[]       = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM sd_combo[]       = {KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM awd_combo[]      = {KC_A, KC_W, KC_D, COMBO_END};
+const uint16_t PROGMEM qwe_combo[]      = {KC_Q, KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM slashdot_combo[] = {KC_DOT, KC_SLASH, COMBO_END};
+const uint16_t PROGMEM f3f4_combo[]     = {KC_F3, KC_F4, COMBO_END};
 
 // clang-format off
 combo_t key_combos[] = {
@@ -74,7 +75,8 @@ combo_t key_combos[] = {
     [CV_PASTE]          = COMBO(cv_combo,       C(KC_V)),
     [SD_SAVE]           = COMBO(sd_combo,       C(KC_S)),
     [SLASHDOT_COMMENT]  = COMBO(slashdot_combo, C(KC_SLASH)),
-    [AWD_GAMING]        = COMBO(awd_combo,      TG(GAMING)),
+    [QWE_GAMING]        = COMBO(qwe_combo,      TG(GAMING)),
+    [F3F4_SUPERF4]      = COMBO(f3f4_combo,     C(A(KC_F4))),
 };
 
 // === === === === === === === === === === === === === ===
@@ -84,7 +86,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case BASE:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_DUAL_BEACON);
-            combo_enable();
             break;
         case BASE_FN:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_SPLASH);
@@ -92,7 +93,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             break;
         case GAMING:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_TYPING_HEATMAP);
-            combo_disable();
             break;
         case NUM_PAD:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_SPLASH);
@@ -222,5 +222,24 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         default:
             break;
     }
+    return true;
+}
+
+// === === === === === === === === === === === === === ===
+//  PER LAYER COMBO ACTIVATION
+// === === === === === === === === === === === === === ===
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    switch (combo_index) {
+        case ZX_CUT:
+        case XC_COPY:
+        case CV_PASTE:
+        case SD_SAVE:
+        case SLASHDOT_COMMENT:
+        case F3F4_SUPERF4:
+            if (layer_state_is(GAMING)) {
+                return false;
+            }
+    }
+
     return true;
 }

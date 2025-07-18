@@ -419,6 +419,16 @@
     </g>
 
     <g class="combo">
+        <rect class="combo" id="rect88" width="70" height="20" x="175" y="27" inkscape:label="combo" />
+        <text x="210" y="37" id="text89">CTRL(ALT((F4))</text>
+    </g>
+
+    <g class="combo">
+        <rect class="combo" id="rect88" width="100" height="20" x="100" y="116" inkscape:label="combo" />
+        <text x="150" y="126" id="text89">TG(GAMING)</text>
+    </g>
+
+    <g class="combo">
         <rect class="combo" id="rect88" width="40" height="20" x="170" y="162" inkscape:label="combo" />
         <text x="190" y="172" id="text89">CTRL(S)</text>
     </g>

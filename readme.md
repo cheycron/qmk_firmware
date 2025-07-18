@@ -81,10 +81,12 @@ The rotary encoder's function changes based on the active layer:
 
 To improve workflow speed, several key combinations are available on the `BASE` layer:
 
-| Keys      | Action       | Shortcut     |
-| :-------- | :----------- | :----------- |
-| `Z` + `X` | Cut          | `Ctrl` + `X` |
-| `X` + `C` | Copy         | `Ctrl` + `C` |
-| `C` + `V` | Paste        | `Ctrl` + `V` |
-| `S` + `D` | Save         | `Ctrl` + `S` |
-| `.` + `/` | Comment Line | `Ctrl` + `/` |
+| Keys            | Action                                             | Shortcut             |
+| :-------------- | :------------------------------------------------- | :------------------- |
+| `Z` + `X`       | Cut                                                | `Ctrl` + `X`         |
+| `X` + `C`       | Copy                                               | `Ctrl` + `C`         |
+| `C` + `V`       | Paste                                              | `Ctrl` + `V`         |
+| `S` + `D`       | Save                                               | `Ctrl` + `S`         |
+| `.` + `/`       | Comment Line                                       | `Ctrl` + `/`         |
+| `Q` + `W` + `E` | Toggle Gaming Layer                                | `Gaming Layer`       |
+| `F3` + `F4`     | [SuperF4](https://stefansundin.github.io/superf4/) | `Ctrl` + `Alt` + `/` |
