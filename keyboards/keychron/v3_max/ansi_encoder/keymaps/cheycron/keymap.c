@@ -4,30 +4,12 @@
 #include "rgb_matrix.h"
 
 // === === === === === === === === === === === === === ===
-//  DECLARACIONES GLOBALES
+//  GLOBAL
 // === === === === === === === === === === === === === ===
 extern layer_state_t layer_state;
-
-// === === === === === === === === === === === === === ===
-//  DEFINICION DE COMBOS
-// === === === === === === === === === === === === === ===
-enum combos { ZX_CUT, XC_COPY, CV_PASTE, SD_SAVE, SLASHDOT_COMMENT };
-const uint16_t PROGMEM zx_combo[]       = {KC_Z, KC_X, COMBO_END};
-const uint16_t PROGMEM xc_combo[]       = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM cv_combo[]       = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM sd_combo[]       = {KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM slashdot_combo[] = {KC_DOT, KC_SLASH, SD_SAVE, COMBO_END};
-// clang-format off
-combo_t key_combos[] = {
-    [ZX_CUT]           = COMBO(zx_combo, C(KC_X)),
-    [XC_COPY]          = COMBO(xc_combo, C(KC_C)),
-    [CV_PASTE]         = COMBO(cv_combo, C(KC_V)),
-    [SD_SAVE]          = COMBO(sd_combo, C(KC_S)),
-    [SLASHDOT_COMMENT] = COMBO(slashdot_combo, C(KC_SLASH)),
-};
 // clang-format on
 // === === === === === === === === === === === === === ===
-//  DEFINICION DE LAYERS
+//  LAYERS
 // === === === === === === === === === === === === === ===
 enum layers { BASE, BASE_FN, GAMING, NUM_PAD };
 // clang-format off
@@ -64,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // clang-format on
 
 // === === === === === === === === === === === === === ===
-//  CONFIGURACIÓN ENCODER
+//  ENCODER
 // === === === === === === === === === === === === === ===
 
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
@@ -72,6 +54,27 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [BASE_FN] = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
     [GAMING]  = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [NUM_PAD] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+};
+
+// === === === === === === === === === === === === === ===
+//  COMBOS
+// === === === === === === === === === === === === === ===
+enum combos { ZX_CUT, XC_COPY, CV_PASTE, SD_SAVE, SLASHDOT_COMMENT, AWD_GAMING };
+const uint16_t PROGMEM zx_combo[]       = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM xc_combo[]       = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM cv_combo[]       = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM sd_combo[]       = {KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM awd_combo[]      = {KC_A, KC_W, KC_D, COMBO_END};
+const uint16_t PROGMEM slashdot_combo[] = {KC_DOT, KC_SLASH, COMBO_END};
+
+// clang-format off
+combo_t key_combos[] = {
+    [ZX_CUT]            = COMBO(zx_combo,       C(KC_X)),
+    [XC_COPY]           = COMBO(xc_combo,       C(KC_C)),
+    [CV_PASTE]          = COMBO(cv_combo,       C(KC_V)),
+    [SD_SAVE]           = COMBO(sd_combo,       C(KC_S)),
+    [SLASHDOT_COMMENT]  = COMBO(slashdot_combo, C(KC_SLASH)),
+    [AWD_GAMING]        = COMBO(awd_combo,      TG(GAMING)),
 };
 
 // === === === === === === === === === === === === === ===
