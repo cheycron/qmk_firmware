@@ -1,7 +1,5 @@
 #include QMK_KEYBOARD_H
 #include "keychron_common.h"
-#include "quantum.h"
-#include "rgb_matrix.h"
 
 // === === === === === === === === === === === === === ===
 //  GLOBAL
@@ -49,9 +47,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  ENCODER
 // === === === === === === === === === === === === === ===
 
-const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [BASE]    = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-    [BASE_FN] = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+    [BASE_FN] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [GAMING]  = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [NUM_PAD] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
 };
@@ -59,10 +57,13 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 // === === === === === === === === === === === === === ===
 //  COMBOS
 // === === === === === === === === === === === === === ===
-enum combos { ZX_CUT, XC_COPY, CV_PASTE, SD_SAVE, SLASHDOT_COMMENT, QWE_GAMING, F3F4_SUPERF4 };
+enum combos { ZX_UNDO, ZXC_REDO, XC_CUT, CV_COPY, VB_PASTE, SD_SAVE, QWE_GAMING, SLASHDOT_COMMENT, F3F4_SUPERF4 };
+
 const uint16_t PROGMEM zx_combo[]       = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM zxc_combo[]      = {KC_Z, KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM xc_combo[]       = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM cv_combo[]       = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM vb_combo[]       = {KC_V, KC_B, COMBO_END};
 const uint16_t PROGMEM sd_combo[]       = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM qwe_combo[]      = {KC_Q, KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM slashdot_combo[] = {KC_DOT, KC_SLASH, COMBO_END};
@@ -70,12 +71,14 @@ const uint16_t PROGMEM f3f4_combo[]     = {KC_F3, KC_F4, COMBO_END};
 
 // clang-format off
 combo_t key_combos[] = {
-    [ZX_CUT]            = COMBO(zx_combo,       C(KC_X)),
-    [XC_COPY]           = COMBO(xc_combo,       C(KC_C)),
-    [CV_PASTE]          = COMBO(cv_combo,       C(KC_V)),
+    [ZX_UNDO]           = COMBO(zx_combo,       C(KC_Z)),
+    [ZXC_REDO]          = COMBO(zxc_combo,      C(KC_Y)),
+    [XC_CUT]            = COMBO(xc_combo,       C(KC_X)),
+    [CV_COPY]           = COMBO(cv_combo,       C(KC_C)),
+    [VB_PASTE]          = COMBO(vb_combo,       C(KC_V)),
     [SD_SAVE]           = COMBO(sd_combo,       C(KC_S)),
-    [SLASHDOT_COMMENT]  = COMBO(slashdot_combo, C(KC_SLASH)),
     [QWE_GAMING]        = COMBO(qwe_combo,      TG(GAMING)),
+    [SLASHDOT_COMMENT]  = COMBO(slashdot_combo, C(KC_SLASH)),
     [F3F4_SUPERF4]      = COMBO(f3f4_combo,     C(A(KC_F4))),
 };
 
@@ -89,17 +92,14 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             break;
         case BASE_FN:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_SPLASH);
-            combo_disable();
             break;
         case GAMING:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_TYPING_HEATMAP);
             break;
         case NUM_PAD:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_SPLASH);
-            combo_disable();
             break;
         default:
-            combo_disable();
             break;
     }
     return state;
@@ -229,17 +229,12 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 //  PER LAYER COMBO ACTIVATION
 // === === === === === === === === === === === === === ===
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
-    switch (combo_index) {
-        case ZX_CUT:
-        case XC_COPY:
-        case CV_PASTE:
-        case SD_SAVE:
-        case SLASHDOT_COMMENT:
-        case F3F4_SUPERF4:
-            if (layer_state_is(GAMING)) {
-                return false;
-            }
+    switch (get_highest_layer(layer_state)) {
+        case BASE:
+            return true;
+        case GAMING:
+            return combo_index == QWE_GAMING;
+        default:
+            return false;
     }
-
-    return true;
 }

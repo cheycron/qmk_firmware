@@ -83,9 +83,11 @@ To improve workflow speed, several key combinations are available on the `BASE` 
 
 | Keys            | Action                                             | Shortcut             |
 | :-------------- | :------------------------------------------------- | :------------------- |
-| `Z` + `X`       | Cut                                                | `Ctrl` + `X`         |
-| `X` + `C`       | Copy                                               | `Ctrl` + `C`         |
-| `C` + `V`       | Paste                                              | `Ctrl` + `V`         |
+| `Z` + `X`       | Undo                                               | `Ctrl` + `Z`         |
+| `Z` + `X` + `C` | Redo                                               | `Ctrl` + `Y`         |
+| `X` + `C`       | Cut                                                | `Ctrl` + `X`         |
+| `C` + `V`       | Copy                                               | `Ctrl` + `C`         |
+| `V` + `B`       | Paste                                              | `Ctrl` + `V`         |
 | `S` + `D`       | Save                                               | `Ctrl` + `S`         |
 | `.` + `/`       | Comment Line                                       | `Ctrl` + `/`         |
 | `Q` + `W` + `E` | Toggle Gaming Layer                                | `Gaming Layer`       |
