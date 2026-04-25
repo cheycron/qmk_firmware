@@ -32,13 +32,12 @@ Flash the resulting `.bin` with [QMK Toolbox](https://github.com/qmk/qmk_toolbox
 - Hold `Fn` to access it.
 - RGB: `RGB_MATRIX_SPLASH`.
 - Focused on media, lighting, system shortcuts, and wireless control.
-- `Fn` + `Esc` enters the bootloader/flash mode directly.
+- `Fn` + `Esc` enters the bootloader/flash mode directly. `Fn` + `↑` keeps the previous bootloader shortcut as a fallback.
 - Highlighted groups:
   - **Green:** Task View / File Explorer / brightness shortcuts.
   - **Goldenrod:** media controls.
   - **Gold:** volume controls.
   - **Blue:** Bluetooth host switching (`BT_HST1..3`) and `P2P4G`.
-- `QK_BOOT` is exposed here for direct bootloader access.
 
 ### 3. Gaming Layer
 
