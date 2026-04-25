@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="861" height="297.39932" viewBox="0 0 861 297.39932" version="1.1" id="svg_fn"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg">
+    <defs id="defs_fn" />
+
+    <style>
+        .title {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            text-anchor: middle;
+            fill: #98c379;
+        }
+
+        .subtitle {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            text-anchor: middle;
+            fill: #d0d2d6;
+        }
+
+        .fn-label {
+            font-family: Arial, sans-serif;
+            font-size: 9px;
+            font-weight: bold;
+            text-anchor: middle;
+            dominant-baseline: central;
+            fill: #98c379;
+        }
+
+        .fn-boot {
+            font-family: Arial, sans-serif;
+            font-size: 9px;
+            font-weight: bold;
+            text-anchor: middle;
+            dominant-baseline: central;
+            fill: #61afef;
+        }
+
+        .fn-box {
+            fill: #2f3a2f;
+            fill-opacity: 0.78;
+            stroke: #98c379;
+            stroke-width: 1;
+        }
+
+        .fn-box-boot {
+            fill: #22313d;
+            fill-opacity: 0.82;
+            stroke: #61afef;
+            stroke-width: 1;
+        }
+    </style>
+
+    <image href="keyboard.svg" xlink:href="keyboard.svg" x="0" y="0" width="861" height="297.39932" />
+
+    <text x="430.5" y="18" class="title">Function Layer (hold Fn)</text>
+    <text x="430.5" y="31" class="subtitle">Highlighted keys show the BASE_FN mappings</text>
+
+    <!-- Fn + Esc: direct bootloader access -->
+    <rect x="10" y="10" width="40" height="40" rx="2" ry="2" class="fn-box-boot" />
+    <text x="30" y="31" class="fn-boot">BOOT</text>
+
+    <!-- Top row: media / system shortcuts -->
+    <rect x="70" y="10" width="40" height="40" rx="2" ry="2" class="fn-box" />
+    <text x="90" y="31" class="fn-label">BRD</text>
+
+    <rect x="115" y="10" width="40" height="40" rx="2" ry="2" class="fn-box" />
+    <text x="135" y="31" class="fn-label">BRU</text>
+
+    <rect x="160" y="10" width="40" height="40" rx="2" ry="2" class="fn-box" />
+    <text x="180" y="31" class="fn-label">Task</text>
+
+    <rect x="205" y="10" width="40" height="40" rx="2" ry="2" class="fn-box" />
+    <text x="225" y="31" class="fn-label">File</text>
+
+    <rect x="355" y="10" width="40" height="40" rx="2" ry="2" class="fn-box" />
+    <text x="375" y="31" class="fn-label">MPRV</text>
+
+    <rect x="400" y="10" width="40" height="40" rx="2" ry="2" class="fn-box" />
+    <text x="420" y="31" class="fn-label">MPLY</text>
+
+    <rect x="460" y="10" width="40" height="40" rx="2" ry="2" class="fn-box" />
+    <text x="480" y="31" class="fn-label">MNXT</text>
+
+    <rect x="505" y="10" width="40" height="40" rx="2" ry="2" class="fn-box" />
+    <text x="525" y="31" class="fn-label">MUTE</text>
+
+    <rect x="550" y="10" width="40" height="40" rx="2" ry="2" class="fn-box" />
+    <text x="570" y="31" class="fn-label">VOLD</text>
+
+    <rect x="595" y="10" width="40" height="40" rx="2" ry="2" class="fn-box" />
+    <text x="615" y="31" class="fn-label">VOLU</text>
+
+    <!-- Second row: wireless controls -->
+    <rect x="10" y="55" width="40" height="40" rx="2" ry="2" class="fn-box" />
+    <text x="30" y="76" class="fn-label">P2P4G</text>
+
+    <rect x="55" y="55" width="40" height="40" rx="2" ry="2" class="fn-box" />
+    <text x="75" y="76" class="fn-label">BT1</text>
+
+    <rect x="100" y="55" width="40" height="40" rx="2" ry="2" class="fn-box" />
+    <text x="120" y="76" class="fn-label">BT2</text>
+
+    <rect x="145" y="55" width="40" height="40" rx="2" ry="2" class="fn-box" />
+    <text x="165" y="76" class="fn-label">BT3</text>
+
+    <!-- Fn-held boot key -->
+    <rect x="515" y="235" width="55" height="40" rx="2" ry="2" class="fn-box-boot" />
+    <text x="542.5" y="255" class="fn-boot">BOOT</text>
+</svg>

@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT,                KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_SLSH,                    KC_RSFT,                    KC_UP,
         KC_LCTL,    KC_LCMD,    KC_LALT,                                        KC_SPC,                                         KC_RALT,    KC_RWIN,    MO(BASE_FN),    KC_RCTL,    KC_LEFT,        KC_DOWN,    KC_RGHT),
     [BASE_FN] = LAYOUT_tkl_ansi(
-        KC_NO,      KC_BRID,    KC_BRIU,    KC_TASK,    KC_FILE,    KC_NO,      KC_NO,      KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,    KC_VOLD,    KC_VOLU,        KC_NO,      KC_NO,          KC_NO,      KC_NO,
+        QK_BOOT,    KC_BRID,    KC_BRIU,    KC_TASK,    KC_FILE,    KC_NO,      KC_NO,      KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,    KC_VOLD,    KC_VOLU,        KC_NO,      KC_NO,          KC_NO,      KC_NO,
         P2P4G,      BT_HST1,    BT_HST2,    BT_HST3,    KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,          KC_NO,      KC_NO,          KC_NO,      KC_NO,
         KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,          KC_NO,      KC_NO,          KC_NO,      KC_NO,
         KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,                      KC_NO,
@@ -199,74 +199,78 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 //  PER LAYER LED COLORS
 // === === === === === === === === === === === === === ===
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-    switch (get_highest_layer(layer_state)) {
-        case BASE:
-            break;
-        case BASE_FN:
-            // File
-            rgb_matrix_set_color(1, RGB_GREEN);
-            rgb_matrix_set_color(2, RGB_GREEN);
-            rgb_matrix_set_color(3, RGB_GREEN);
-            rgb_matrix_set_color(4, RGB_GREEN);
-            // Media Control
-            rgb_matrix_set_color(7, RGB_GOLDENROD);
-            rgb_matrix_set_color(8, RGB_GOLDENROD);
-            rgb_matrix_set_color(9, RGB_GOLDENROD);
-            rgb_matrix_set_color(10, RGB_GOLDENROD);
-            // Volume + / -
-            rgb_matrix_set_color(11, RGB_GOLD);
-            rgb_matrix_set_color(12, RGB_GOLD);
-            // Wireless Setup
-            rgb_matrix_set_color(16, RGB_BLUE);
-            rgb_matrix_set_color(17, RGB_BLUE);
-            rgb_matrix_set_color(18, RGB_BLUE);
-            rgb_matrix_set_color(19, RGB_BLUE);
-            break;
-        case GAMING:
-            if (autorun_active) {
-                rgb_matrix_set_color(13, RGB_RED);
-                rgb_matrix_set_color(14, RGB_RED);
-                rgb_matrix_set_color(15, RGB_RED);
+    const bool autorun_phase = ((timer_read32() / 180) & 1) != 0;
+
+    if (layer_state_cmp(layer_state, BASE_FN)) {
+        // File
+        rgb_matrix_set_color(1, RGB_GREEN);
+        rgb_matrix_set_color(2, RGB_GREEN);
+        rgb_matrix_set_color(3, RGB_GREEN);
+        rgb_matrix_set_color(4, RGB_GREEN);
+        // Media Control
+        rgb_matrix_set_color(7, RGB_GOLDENROD);
+        rgb_matrix_set_color(8, RGB_GOLDENROD);
+        rgb_matrix_set_color(9, RGB_GOLDENROD);
+        rgb_matrix_set_color(10, RGB_GOLDENROD);
+        // Volume + / -
+        rgb_matrix_set_color(11, RGB_GOLD);
+        rgb_matrix_set_color(12, RGB_GOLD);
+        // Wireless Setup
+        rgb_matrix_set_color(16, RGB_BLUE);
+        rgb_matrix_set_color(17, RGB_BLUE);
+        rgb_matrix_set_color(18, RGB_BLUE);
+        rgb_matrix_set_color(19, RGB_BLUE);
+    }
+
+    if (gaming_active()) {
+        // WASD movement cluster: W pulses, A/S/D stay as the movement base.
+        rgb_matrix_set_color(51, RGB_MAGENTA);
+        rgb_matrix_set_color(52, RGB_MAGENTA);
+        rgb_matrix_set_color(53, RGB_MAGENTA);
+
+        if (autorun_active) {
+            // Slightly brighten the pulse so the forward direction reads as an arrow.
+            if (autorun_phase) {
+                rgb_matrix_set_color(35, RGB_BLUE);
             } else {
-                rgb_matrix_set_color(13, RGB_MAGENTA);
-                rgb_matrix_set_color(14, RGB_MAGENTA);
-                rgb_matrix_set_color(15, RGB_MAGENTA);
+                rgb_matrix_set_color(35, RGB_MAGENTA);
             }
-            break;
-        case NUM_PAD:
-            rgb_matrix_set_color(13, RGB_GREEN);
-            rgb_matrix_set_color(14, RGB_GREEN);
-            rgb_matrix_set_color(15, RGB_GREEN);
-            // MOUSE PAD
-            rgb_matrix_set_color(75, RGB_WHITE);
-            rgb_matrix_set_color(84, RGB_WHITE);
-            rgb_matrix_set_color(85, RGB_WHITE);
-            rgb_matrix_set_color(86, RGB_WHITE);
-            rgb_matrix_set_color(74, RGB_YELLOW);
-            rgb_matrix_set_color(83, RGB_YELLOW);
-            // NUMPAD
-            rgb_matrix_set_color(18, RGB_BLUE);
-            rgb_matrix_set_color(19, RGB_BLUE);
-            rgb_matrix_set_color(20, RGB_BLUE);
-            rgb_matrix_set_color(34, RGB_CYAN);
-            rgb_matrix_set_color(35, RGB_CYAN);
-            rgb_matrix_set_color(36, RGB_CYAN);
-            rgb_matrix_set_color(37, RGB_BLUE);
-            rgb_matrix_set_color(51, RGB_CYAN);
-            rgb_matrix_set_color(52, RGB_CYAN);
-            rgb_matrix_set_color(53, RGB_CYAN);
-            rgb_matrix_set_color(54, RGB_BLUE);
-            rgb_matrix_set_color(64, RGB_CYAN);
-            rgb_matrix_set_color(65, RGB_CYAN);
-            rgb_matrix_set_color(66, RGB_CYAN);
-            rgb_matrix_set_color(78, RGB_CYAN);
-            rgb_matrix_set_color(79, RGB_BLUE);
-            rgb_matrix_set_color(29, RGB_BLUE);
-            rgb_matrix_set_color(62, RGB_BLUE);
-            rgb_matrix_set_color(47, RGB_BLUE);
-            break;
-        default:
-            break;
+        } else {
+            rgb_matrix_set_color(35, RGB_MAGENTA);
+        }
+    }
+
+    if (layer_state_cmp(layer_state, NUM_PAD)) {
+        rgb_matrix_set_color(13, RGB_GREEN);
+        rgb_matrix_set_color(14, RGB_GREEN);
+        rgb_matrix_set_color(15, RGB_GREEN);
+        // MOUSE PAD
+        rgb_matrix_set_color(75, RGB_WHITE);
+        rgb_matrix_set_color(84, RGB_WHITE);
+        rgb_matrix_set_color(85, RGB_WHITE);
+        rgb_matrix_set_color(86, RGB_WHITE);
+        rgb_matrix_set_color(74, RGB_YELLOW);
+        rgb_matrix_set_color(83, RGB_YELLOW);
+        // NUMPAD
+        rgb_matrix_set_color(18, RGB_BLUE);
+        rgb_matrix_set_color(19, RGB_BLUE);
+        rgb_matrix_set_color(20, RGB_BLUE);
+        rgb_matrix_set_color(34, RGB_CYAN);
+        rgb_matrix_set_color(35, RGB_CYAN);
+        rgb_matrix_set_color(36, RGB_CYAN);
+        rgb_matrix_set_color(37, RGB_BLUE);
+        rgb_matrix_set_color(51, RGB_CYAN);
+        rgb_matrix_set_color(52, RGB_CYAN);
+        rgb_matrix_set_color(53, RGB_CYAN);
+        rgb_matrix_set_color(54, RGB_BLUE);
+        rgb_matrix_set_color(64, RGB_CYAN);
+        rgb_matrix_set_color(65, RGB_CYAN);
+        rgb_matrix_set_color(66, RGB_CYAN);
+        rgb_matrix_set_color(78, RGB_CYAN);
+        rgb_matrix_set_color(79, RGB_BLUE);
+        rgb_matrix_set_color(29, RGB_BLUE);
+        rgb_matrix_set_color(62, RGB_BLUE);
+        rgb_matrix_set_color(47, RGB_BLUE);
     }
     return true;
 }
