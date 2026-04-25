@@ -10,6 +10,21 @@ extern layer_state_t layer_state;
 //  LAYERS
 // === === === === === === === === === === === === === ===
 enum layers { BASE, BASE_FN, GAMING, NUM_PAD };
+
+enum custom_keycodes { AR_WALK = SAFE_RANGE };
+
+static bool autorun_active = false;
+
+static inline bool gaming_active(void) {
+    return layer_state_cmp(layer_state, GAMING);
+}
+
+static void stop_autorun(void) {
+    if (autorun_active) {
+        unregister_code(KC_W);
+        autorun_active = false;
+    }
+}
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_tkl_ansi(
@@ -57,7 +72,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 // === === === === === === === === === === === === === ===
 //  COMBOS
 // === === === === === === === === === === === === === ===
-enum combos { ZX_UNDO, ZXC_REDO, XC_CUT, CV_COPY, VB_PASTE, SD_SAVE, QWE_GAMING, SLASHDOT_COMMENT, F3F4_SUPERF4 };
+enum combos { ZX_UNDO, ZXC_REDO, XC_CUT, CV_COPY, VB_PASTE, SD_SAVE, QWE_AUTORUN, ONE_TWO_THREE_GAMING, SLASHDOT_COMMENT, F3F4_SUPERF4 };
 
 const uint16_t PROGMEM zx_combo[]       = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM zxc_combo[]      = {KC_Z, KC_X, KC_C, COMBO_END};
@@ -66,6 +81,7 @@ const uint16_t PROGMEM cv_combo[]       = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM vb_combo[]       = {KC_V, KC_B, COMBO_END};
 const uint16_t PROGMEM sd_combo[]       = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM qwe_combo[]      = {KC_Q, KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM one_two_three_combo[] = {KC_1, KC_2, KC_3, COMBO_END};
 const uint16_t PROGMEM slashdot_combo[] = {KC_DOT, KC_SLASH, COMBO_END};
 const uint16_t PROGMEM f3f4_combo[]     = {KC_F3, KC_F4, COMBO_END};
 
@@ -77,7 +93,8 @@ combo_t key_combos[] = {
     [CV_COPY]           = COMBO(cv_combo,       C(KC_C)),
     [VB_PASTE]          = COMBO(vb_combo,       C(KC_V)),
     [SD_SAVE]           = COMBO(sd_combo,       C(KC_S)),
-    [QWE_GAMING]        = COMBO(qwe_combo,      TG(GAMING)),
+    [QWE_AUTORUN]       = COMBO(qwe_combo,      AR_WALK),
+    [ONE_TWO_THREE_GAMING] = COMBO(one_two_three_combo, TG(GAMING)),
     [SLASHDOT_COMMENT]  = COMBO(slashdot_combo, C(KC_SLASH)),
     [F3F4_SUPERF4]      = COMBO(f3f4_combo,     C(A(KC_F4))),
 };
@@ -86,6 +103,10 @@ combo_t key_combos[] = {
 //  LAYER CHANGE HANDLER
 // === === === === === === === === === === === === === ===
 layer_state_t layer_state_set_user(layer_state_t state) {
+    if (!layer_state_cmp(state, GAMING)) {
+        stop_autorun();
+    }
+
     switch (get_highest_layer(state)) {
         case BASE:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_DUAL_BEACON);
@@ -120,7 +141,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
     }
 
-    if (get_highest_layer(layer_state) == GAMING) {
+    if (keycode == AR_WALK) {
+        if (record->event.pressed) {
+            if (autorun_active) {
+                stop_autorun();
+            } else {
+                register_code(KC_W);
+                autorun_active = true;
+            }
+        }
+        return false;
+    }
+
+    if (gaming_active()) {
         static bool aHeld = false;
         static bool dHeld = false;
 
@@ -144,6 +177,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     unregister_code(KC_D);
                     register_code(KC_A);
                     return false;
+                }
+                return true;
+
+            case KC_W:
+            case KC_S:
+                if (record->event.pressed) {
+                    stop_autorun();
                 }
                 return true;
 
@@ -183,9 +223,15 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             rgb_matrix_set_color(19, RGB_BLUE);
             break;
         case GAMING:
-            rgb_matrix_set_color(13, RGB_MAGENTA);
-            rgb_matrix_set_color(14, RGB_MAGENTA);
-            rgb_matrix_set_color(15, RGB_MAGENTA);
+            if (autorun_active) {
+                rgb_matrix_set_color(13, RGB_RED);
+                rgb_matrix_set_color(14, RGB_RED);
+                rgb_matrix_set_color(15, RGB_RED);
+            } else {
+                rgb_matrix_set_color(13, RGB_MAGENTA);
+                rgb_matrix_set_color(14, RGB_MAGENTA);
+                rgb_matrix_set_color(15, RGB_MAGENTA);
+            }
             break;
         case NUM_PAD:
             rgb_matrix_set_color(13, RGB_GREEN);
@@ -229,11 +275,11 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 //  PER LAYER COMBO ACTIVATION
 // === === === === === === === === === === === === === ===
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
-    switch (get_highest_layer(layer_state)) {
+    switch (gaming_active() ? GAMING : get_highest_layer(layer_state)) {
         case BASE:
-            return true;
+            return combo_index != QWE_AUTORUN;
         case GAMING:
-            return combo_index == QWE_GAMING;
+            return combo_index == QWE_AUTORUN || combo_index == ONE_TWO_THREE_GAMING;
         default:
             return false;
     }

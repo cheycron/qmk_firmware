@@ -51,6 +51,8 @@ The functionality is split across four main layers, each with a distinct purpose
 -   This mode is optimized for gaming:
     -   The `Windows` / `Command` keys are disabled to prevent accidental presses.
     -   Includes an anti-ghosting feature for `A` and `D` keys: if you hold one key and press the other, the first one is unregistered to prevent conflicting inputs in games.
+    -   Includes an auto-run toggle on `Q` + `W` + `E`: it holds `W` until `W` or `S` is pressed, or until the toggle is pressed again.
+    -   While auto-run is active, the gaming RGB indicator switches to red so the state is visible at a glance.
 
 #### 4. Numpad Layer
 
@@ -79,16 +81,17 @@ The rotary encoder's function changes based on the active layer:
 
 ![base](keyboards/keychron/v3_max/assets/combos.svg)
 
-To improve workflow speed, several key combinations are available on the `BASE` layer:
+To improve workflow speed, several key combinations are available across the keymap:
 
-| Keys            | Action                                             | Shortcut             |
-| :-------------- | :------------------------------------------------- | :------------------- |
-| `Z` + `X`       | Undo                                               | `Ctrl` + `Z`         |
-| `Z` + `X` + `C` | Redo                                               | `Ctrl` + `Y`         |
-| `X` + `C`       | Cut                                                | `Ctrl` + `X`         |
-| `C` + `V`       | Copy                                               | `Ctrl` + `C`         |
-| `V` + `B`       | Paste                                              | `Ctrl` + `V`         |
-| `S` + `D`       | Save                                               | `Ctrl` + `S`         |
-| `.` + `/`       | Comment Line                                       | `Ctrl` + `/`         |
-| `Q` + `W` + `E` | Toggle Gaming Layer                                | `Gaming Layer`       |
-| `F3` + `F4`     | [SuperF4](https://stefansundin.github.io/superf4/) | `Ctrl` + `Alt` + `/` |
+| Layer          | Keys            | Action                                             | Shortcut             |
+| :------------- | :-------------- | :------------------------------------------------- | :------------------- |
+| `BASE`         | `Z` + `X`       | Undo                                               | `Ctrl` + `Z`         |
+| `BASE`         | `Z` + `X` + `C` | Redo                                               | `Ctrl` + `Y`         |
+| `BASE`         | `X` + `C`       | Cut                                                | `Ctrl` + `X`         |
+| `BASE`         | `C` + `V`       | Copy                                               | `Ctrl` + `C`         |
+| `BASE`         | `V` + `B`       | Paste                                              | `Ctrl` + `V`         |
+| `BASE`         | `S` + `D`       | Save                                               | `Ctrl` + `S`         |
+| `BASE`         | `.` + `/`       | Comment Line                                       | `Ctrl` + `/`         |
+| `BASE/GAMING`  | `1` + `2` + `3` | Toggle Gaming Layer                                | `Gaming Layer`       |
+| `GAMING`       | `Q` + `W` + `E` | Auto Run Forward                                   | Hold `W`             |
+| `BASE`         | `F3` + `F4`     | [SuperF4](https://stefansundin.github.io/superf4/) | `Ctrl` + `Alt` + `F4` |
